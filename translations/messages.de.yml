@@ -1,0 +1,55 @@
+label:
+  general: Allgemeine Informationen
+  user: Benutzer
+  duration: Dauer
+  comment: Kommentar
+  comment_help: Ein Kommentar ist nicht obgligarisch und wird nur auf der eigenen Übersicht angezeigt. In dem Feld kann beliebiger Text eingetragen werden.
+  minutes: "{0} %count% Minuten|{1} Minute|]1,Inf[ %count% Minuten"
+  file: Datei
+  code: Code
+  requested_at: Abgerufen am
+  select:
+    duration: Dauer auswählen
+  wifi_name: Name des WLANs
+  url: URL des Captive Portal
+
+request:
+  label: Code anfordern
+  success: Code erfolgreich abgerufen
+  action: anfordern
+  error:
+    no_codes: Fehler beim Abrufen des Codes - leider sind keine Codes für die gewünschte Dauer verfügbar.
+    generic: Fehler beim Abrufen des Codes - bitte den Administrator informieren.
+
+show:
+  label: Code anzeigen
+  network: WLAN-Netzwerk
+  instructions:
+    connect: WLAN-Netwerk auswählen
+    connect_info: Die Verbindung benötigt kein Passwort
+    authenticate: Browser öffnen
+    enter: Code eintragen
+    enter_info: Nur Großbuchstaben. Ziffern werden grün dargestellt.
+    surf: Das Internet ist nun freigeschaltet.
+    surf_info: Die Zeit läuft ab dem Zeitpunkt, an dem die erste Person den Code eingetragen hat. Das Internet wird automatisch getrennt.
+
+codes:
+  label: Codes
+  available: "%available% / %count% verfügbar"
+  import:
+    label: Codes importieren
+    success: Codes erfolgreich importiert.
+    failure: "Fehler beim Import: %message%"
+    submit: importieren
+
+settings:
+  label: Einstellungen
+  success: Einstellungen erfolgreich aktualisiert
+  save: speichern
+
+dashboard:
+  label: Übersicht
+  codes: Codes
+
+administration:
+  label: Verwaltung

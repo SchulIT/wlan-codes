@@ -1,0 +1,70 @@
+{% extends "main.html.twig" %}
+
+{% block title %}{{ 'codes.label'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('dashboard') }}">{{ 'dashboard.label'|trans }}</a></li>
+        <li class="breadcrumb-item">{{ block('title') }}</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card-deck mb-3">
+                    {% for stat in stats %}
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {{ 'label.minutes'|trans({'%count%': stat.duration}) }}
+                                </h5>
+
+                                <div class="progress">
+                                    {% set availablePercent = stat.available / stat.count * 100  %}
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: {{ availablePercent }}%" aria-valuenow="{{ availablePercent }}" aria-valuemin="0" aria-valuemax="100">{{ availablePercent|round(0, 'floor') }} %</div>
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: {{ 100 - availablePercent }}%" aria-valuenow="{{ 100 - availablePercent }}" aria-valuemin="{{ 100 - availablePercent }}" aria-valuemax="100">{{ (100 - availablePercent)|round(0, 'ceil') }} %</div>
+                                </div>
+
+                                <p class="card-text">
+                                    {{ 'codes.available'|trans({'%available%': stat.available, '%count%': stat.count }) }}
+                                </p>
+                            </div>
+                        </div>
+
+                        {% if loop.index % 2 == 0 %}
+                </div>
+                <div class="card-deck mb-3">
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                {% form_theme form "bootstrap_4_layout.html.twig" %}
+                {{ form_start(form) }}
+
+                <div class="card">
+                    <div class="card-header">
+                        {{ 'codes.import.label'|trans }}
+                    </div>
+
+                    <div class="card-body">
+                        {{ form_widget(form) }}
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-cloud-upload-alt"></i> {{ 'codes.import.submit'|trans }}
+                        </button>
+                    </div>
+                </div>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

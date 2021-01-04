@@ -1,0 +1,47 @@
+$enable-shadows: true;
+$enable-gradients: true;
+
+// Import SCSS from custom
+@import "custom/*.scss";
+
+// Import Bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// Import FontAwesome
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/solid';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/regular';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/brands';
+
+// Import SchoolIT design
+@import '../../vendor/schulit/common-bundle/Resources/assets/css/variables.scss';
+@import '../../vendor/schulit/common-bundle/Resources/assets/css/layout.scss';
+@import '../../vendor/schulit/common-bundle/Resources/assets/css/additions.scss';
+@import '../../vendor/schulit/common-bundle/Resources/assets/css/div-tables.scss';
+@import '../../node_modules/bootstrap-darkmode/darktheme';
+@import '../../vendor/schulit/common-bundle/Resources/assets/css/dark/variables.scss';
+@import '../../vendor/schulit/common-bundle/Resources/assets/css/dark/layout';
+
+// Import Bootstrap 4 Card Tables
+@import '../../node_modules/bootstrap4-card-tables/src/bootstrap4-card-tables';
+@import '../../vendor/schulit/common-bundle/Resources/assets/css/nested-card-tables.scss';
+
+// Import SCSS from overrides
+@import "overrides/*.scss";
+
+.instructions {
+  .card-body {
+    .card-text {
+      font-size: 2rem;
+    }
+  }
+}
+
+label.required {
+  &::after {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: " \f069";
+    color: red;
+  }
+}

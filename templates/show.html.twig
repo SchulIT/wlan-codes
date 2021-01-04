@@ -1,0 +1,97 @@
+{% extends "main.html.twig" %}
+
+{% block title %}{{ 'show.label'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('dashboard') }}">{{ 'dashboard.label'|trans }}</a></li>
+        <li class="breadcrumb-item">{{ block('title') }}</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="instructions">
+        <div class="card-deck mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <span class="badge badge-primary badge-pill">1</span>
+                        {{ 'show.instructions.connect'|trans }}
+                    </h5>
+                    <p class="card-text">
+                        <i class="fa fa-wifi"></i><br>
+
+                        {{ network }}
+                    </p>
+                    <p class="text-muted">
+                        <i class="fa fa-info-circle"></i> {{ 'show.instructions.connect_info'|trans }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <span class="badge badge-primary badge-pill">2</span>
+                        {{ 'show.instructions.authenticate'|trans }}
+                    </h5>
+                    <p class="card-text">
+                        <i class="fab fa-firefox"></i>
+                        <i class="fab fa-edge"></i>
+                        <i class="fab fa-chrome"></i>
+                        <i class="fab fa-safari"></i>
+                        <br>
+                        {% if url starts with 'https://' %}
+                            <span class="text-muted">https://</span>{{ url|slice(8) }}
+                        {% else %}
+                            {{ url }}
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <span class="badge badge-primary badge-pill">3</span>
+                        {{ 'show.instructions.enter'|trans }}
+                    </h5>
+                    <p class="card-text">
+                        <i class="fas fa-keyboard"></i><br>
+
+                        <code>
+                            {% for c in code.code|split('') %}
+                                {% if c matches '/^\\d+$/' %}
+                                    <span class="text-success">{{ c }}</span>
+                                {% else %}
+                                    {{ c }}
+                                {% endif %}
+                            {% endfor %}
+                        </code>
+                    </p>
+                    <p class="text-muted">
+                        <i class="fa fa-info-circle"></i> {{ 'show.instructions.enter_info'|trans }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fa fa-check"></i>
+                    {{ 'show.instructions.surf'|trans }}
+                </h5>
+
+                <p class="card-text">
+                    <i class="fa fa-clock"></i><br>
+                    {{ 'label.minutes'|trans({'%count%': code.duration }) }}
+                </p>
+
+                <p class="text-muted">
+                    <i class="fa fa-info-circle"></i> {{ 'show.instructions.surf_info'|trans }}
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
