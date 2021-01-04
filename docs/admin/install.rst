@@ -62,8 +62,8 @@ Anschließend werden einige Daten abgefragt. Diese können abgesehen vom ``commo
 
 - ``countryName``, ``stateOrProvinceName``, ``localityName`` geben den Standort der Schule an
 - ``organizationName`` entspricht dem Namen der Schule
-- ``organizationalUnitName`` entspricht der Fachabteilung der Schule, welche das ICC administriert, bspw. Schulname und IT-Suffix
-- ``commonName`` Domainname des ICCs, bspw. ``icc.example.com``
+- ``organizationalUnitName`` entspricht der Fachabteilung der Schule, welche diese Software administriert, bspw. Schulname und IT-Suffix
+- ``commonName`` Domainname der Software, bspw. ``wlan.example.com``
 - ``emailAddress`` entspricht der E-Mail-Adresse des Administrators
 
 Schritt 2.3: Identity Provider bekannt machen
@@ -108,7 +108,7 @@ Nun folgende Kommandos ausführen, um die Installation abzuschließen:
     $ php bin/console cache:clear
     $ php bin/console doctrine:migrations:migrate --no-interaction
 
-Schritt 4: ICC im Identity Provider registrieren
+Schritt 4: Software am Identity Provider registrieren
 ------------------------------------------------
 
 Schritt 4.1: Dienst erstellen
@@ -126,7 +126,7 @@ Im Identity Provider muss die Software als neuer Dienst registriert werden.
 Schritt 4.2: Attribut für Rollen erstellen
 ##########################################
 
-Im nächsten Schritt muss ein Attribut erstellt werden, welches die ICC Rolle eines Benutzers speichert und dem ICC übermittelt. Dazu
+Im nächsten Schritt muss ein Attribut erstellt werden, welches Rolle eines Benutzers speichert und der Software übermittelt. Dazu
 im Identity Provider unter Verwaltung > Attribute ein neues Attrribut anlegen.
 
 - Name: ``wifi-codes-roles``

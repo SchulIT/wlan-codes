@@ -19,8 +19,8 @@ import sphinx_fontawesome
 
 # -- Project information -----------------------------------------------------
 
-project = 'Windows 10 Education Store'
-copyright = '2020, SchulIT'
+project = 'WLAN Code-Verwaltung'
+copyright = '2021, SchulIT'
 author = 'Marcel Marnitz'
 
 

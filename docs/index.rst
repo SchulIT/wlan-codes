@@ -1,9 +1,8 @@
 Dokumentation
 =============
 
-Diese Dokumentation dient einerseits einem Administrator zur Einrichtung
-und Verwaltung der Software und andererseits den Anwendern als Hilfe
-zu Workflows.
+Diese Dokumentation dient in erster Linie einem Administrator zur Einrichtung
+und Verwaltung der Software.
 
 
 .. toctree::
