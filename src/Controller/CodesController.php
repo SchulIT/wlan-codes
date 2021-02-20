@@ -57,7 +57,7 @@ class CodesController extends AbstractController {
                 $this->addFlash('error', $translator->trans('codes.import.failure', [ 'message' => $e->getMessage() ]));
             }
 
-            return $this->redirectToRoute('import_codes');
+            return $this->redirectToRoute('codes');
         }
 
         return $this->render('admin/codes.html.twig', [
