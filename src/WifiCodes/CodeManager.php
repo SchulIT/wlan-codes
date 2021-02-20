@@ -50,8 +50,6 @@ class CodeManager {
 
     public function areAllCodesAlmostUsed(): bool {
         foreach($this->repository->getAvailableDurations() as $duration) {
-            dump($duration);
-
             $available = $this->repository->countAvailableCodes($duration);
 
 
