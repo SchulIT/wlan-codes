@@ -56,4 +56,9 @@ interface WifiCodeRepositoryInterface extends TransactionalRepositoryInterface {
      * @param WifiCode $code
      */
     public function remove(WifiCode $code): void;
+
+    /**
+     * Detach all codes entity from the entity manager
+     */
+    public function detach(): void;
 }

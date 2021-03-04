@@ -86,4 +86,8 @@ class WifiCodeRepository extends AbstractTransactionalRepository implements Wifi
 
         return array_column($durations, 1);
     }
+
+    public function detach(): void {
+        $this->em->clear();
+    }
 }

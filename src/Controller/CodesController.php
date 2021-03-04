@@ -17,6 +17,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class CodesController extends AbstractController {
 
+    private const BatchSize = 200;
+
     /**
      * @Route("", name="codes")
      */
@@ -38,6 +40,7 @@ class CodesController extends AbstractController {
             try {
                 $codeRepository->beginTransaction();
                 $csv = Reader::createFromFileObject($form->get('csv')->getData()->openFile());
+                $i = 0;
                 foreach ($csv->getRecords() as $record) {
                     // Skip comments
                     if (substr($record[0], 0, 1) === '#') {
@@ -49,7 +52,15 @@ class CodesController extends AbstractController {
                         ->setDuration($form->get('duration')->getData());
 
                     $codeRepository->persist($code);
+
+                    $i++;
+                    if($i % static::BatchSize === 0) {
+                        $codeRepository->commit();
+                        $codeRepository->detach();
+                        $codeRepository->beginTransaction();
+                    }
                 }
+
                 $codeRepository->commit();
 
                 $this->addFlash('success', $translator->trans('codes.import.success'));
