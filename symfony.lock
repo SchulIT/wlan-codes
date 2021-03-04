@@ -95,6 +95,9 @@
     "fightbulc/moment": {
         "version": "1.26.10"
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.3"
+    },
     "frostiede/composer-dependency-list": {
         "version": "1.0.0"
     },
@@ -272,6 +275,9 @@
     "symfony/dependency-injection": {
         "version": "v4.0.8"
     },
+    "symfony/deprecation-contracts": {
+        "version": "v2.2.0"
+    },
     "symfony/doctrine-bridge": {
         "version": "v4.0.8"
     },
@@ -403,6 +409,9 @@
     },
     "symfony/property-access": {
         "version": "v4.0.8"
+    },
+    "symfony/proxy-manager-bridge": {
+        "version": "v4.4.19"
     },
     "symfony/routing": {
         "version": "4.0",
