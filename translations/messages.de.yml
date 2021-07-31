@@ -28,8 +28,9 @@ show:
     connect: WLAN-Netwerk auswählen
     connect_info: Die Verbindung benötigt kein Passwort
     authenticate: Browser öffnen
-    enter: Code eintragen
-    enter_info: Nur Großbuchstaben. Ziffern werden grün dargestellt.
+    authenticate_info: Manchmal startet der Browser auch automatisch.
+    enter: Code unter Voucher eintragen
+    enter_info: Nur Großbuchstaben. Ziffern werden grün dargestellt. Ohne Leerzeichen eintragen.
     surf: Das Internet ist nun freigeschaltet.
     surf_info: Die Zeit läuft ab dem Zeitpunkt, an dem die erste Person den Code eingetragen hat. Das Internet wird automatisch getrennt.
 
