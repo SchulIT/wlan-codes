@@ -19,8 +19,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[Route(path: '/admin/codes')]
 class CodesController extends AbstractController {
 
-    private const BatchSize = 200;
-
     #[Route('/import', name: 'xhr_import', methods: [Request::METHOD_POST ])]
     public function import(#[MapRequestPayload] ImportCodeRequest $importCodeRequest, WifiCodeRepositoryInterface $codeRepository): JsonResponse {
         try {

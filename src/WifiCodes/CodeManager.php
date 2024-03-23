@@ -5,18 +5,25 @@ namespace App\WifiCodes;
 use App\Entity\User;
 use App\Entity\WifiCode;
 use App\Repository\WifiCodeRepositoryInterface;
+use App\Security\Voter\CodeVoter;
 use DateTime;
 use RuntimeException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticatorManagerInterface;
 
 class CodeManager {
 
-    private static $Threshold = 50;
+    private static int $Threshold = 50;
 
-    public function __construct(private WifiCodeRepositoryInterface $repository, private TokenStorageInterface $tokenStorage)
+    public function __construct(private readonly WifiCodeRepositoryInterface $repository, private readonly TokenStorageInterface $tokenStorage, private readonly AuthorizationCheckerInterface $authorizationChecker)
     {
     }
 
+    /**
+     * @throws NoCodeAvailableException|NotGrantedException
+     */
     public function requestCode(int $duration, ?string $comment): WifiCode {
         $code = $this->repository->findNextAvailableCode($duration);
 
@@ -24,16 +31,14 @@ class CodeManager {
             throw new NoCodeAvailableException();
         }
 
-        $token = $this->tokenStorage->getToken();
-
-        if($token === null) {
-            throw new RuntimeException('Token must not be null.');
+        if($this->authorizationChecker->isGranted(CodeVoter::Request, $code) !== true) {
+            throw new NotGrantedException();
         }
 
-        $user = $token->getUser();
+        $user = $this->tokenStorage->getToken()?->getUser();
 
         if(!$user instanceof User) {
-            throw new RuntimeException('User must be of instance User.');
+            throw new NotGrantedException();
         }
 
         $code->setRequestedBy($user);
@@ -49,7 +54,7 @@ class CodeManager {
             $available = $this->repository->countAvailableCodes($duration);
 
 
-            if($available < static::$Threshold) {
+            if($available < self::$Threshold) {
                 return true;
             }
         }

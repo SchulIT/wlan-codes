@@ -10,6 +10,7 @@ use App\Security\Voter\CodeVoter;
 use App\Settings\ApplicationSettings;
 use App\WifiCodes\CodeManager;
 use App\WifiCodes\NoCodeAvailableException;
+use App\WifiCodes\NotGrantedException;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,13 +32,13 @@ class DefaultController extends AbstractController {
         $user = $this->getUser();
 
         $page = $request->query->getInt('page', 1);
-        $pages = ceil((float)$repository->countAllByUser($user) / static::ItemsPerPage);
+        $pages = ceil((float)$repository->countAllByUser($user) / self::ItemsPerPage);
 
         if($page <= 0 || $page > $pages) {
             $page = 1;
         }
 
-        $codes = $repository->findAllByUser($user, ($page - 1) * static::ItemsPerPage, static::ItemsPerPage);
+        $codes = $repository->findAllByUser($user, ($page - 1) * self::ItemsPerPage, self::ItemsPerPage);
 
         $form = $this->createForm(RequestWifiCodeType::class);
         $form->handleRequest($request);
@@ -53,6 +54,8 @@ class DefaultController extends AbstractController {
                 ]);
             } catch (NoCodeAvailableException) {
                 $this->addFlash('error', 'request.error.no_codes');
+            } catch(NotGrantedException) {
+                $this->addFlash('error', 'request.error.not_granted');
             } catch (Exception) {
                 $this->addFlash('error', 'request.error.generic');
             }

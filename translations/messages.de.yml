@@ -20,6 +20,7 @@ request:
   error:
     no_codes: Fehler beim Abrufen des Codes - leider sind keine Codes für die gewünschte Dauer verfügbar.
     generic: Fehler beim Abrufen des Codes - bitte den Administrator informieren.
+    not_granted: Aufgrund fehlender Berechtigung kann kein Code abgerufen werden. Bitte einen Code beim Administrator anfragen.
 
 show:
   label: Code anzeigen
