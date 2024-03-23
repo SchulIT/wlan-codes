@@ -54,3 +54,6 @@ dashboard:
 
 administration:
   label: Verwaltung
+
+external:
+  docs: Handbuch
