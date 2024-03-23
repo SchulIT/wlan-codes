@@ -13,7 +13,7 @@ Lehrkräfte weiterzugeben.
 
 ## Handbuch
 
-Das Handbuch ist [hier](https://wlan-codes.readthedocs.org) zu finden.
+Das Handbuch ist [hier](https://docs.schulit.de/wlan-codes) zu finden.
 
 ## Mitmachen
 
