@@ -1,71 +1,78 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
 # Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+
+imports:
+  - { resource: version.yaml }
 
 services:
-    # default configuration for services in *this* file
-    _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-        public: false       # Allows optimizing the container by removing unused services; this also means
-                            # fetching services directly from the container via $container->get() won't work.
-                            # The best practice is to be explicit about your dependencies anyway.
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
-    App\:
-        resource: '../src/*'
-        exclude: '../src/{Entity,Migrations,Tests,Kernel.php}'
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+  App\:
+    resource: '../src/'
+    exclude:
+      - '../src/DependencyInjection'
+      - '../src/Entity'
+      - '../src/Request/Data'
+      - '../src/Kernel.php'
 
-    # controllers are imported separately to make sure services can be injected
-    # as action arguments even if you don't extend any base controller class
-    App\Controller\:
-        resource: '../src/Controller'
-        tags: ['controller.service_arguments']
+  # SESSIONS
+  Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
+    arguments:
+      $pdoOrDsn: '%env(DATABASE_URL)%'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+      # SAML
+  LightSaml\SpBundle\Security\User\UsernameMapperInterface:
+    alias: lightsaml_sp.username_mapper.simple
 
-    # SESSIONS
-    Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
-      arguments:
-        $pdoOrDsn: '%env(DATABASE_URL)%'
+  LightSaml\Store\Id\IdStoreInterface:
+    class: SchulIT\CommonBundle\Store\IdStore
 
-    # SAML
-    LightSaml\SpBundle\Security\User\UsernameMapperInterface:
-      alias: lightsaml_sp.username_mapper.simple
+  SchulIT\CommonBundle\Command\CreateCertificateCommand:
+    arguments:
+      $types:
+        saml:
+          keyFile: '%sp_cert_key%'
+          certFile: '%sp_cert_file%'
+        oauth2:
+          keyFile: '%kernel.project_dir%/oauth/oauth.key'
+          certFile: '%kernel.project_dir%/oauth/oauth.pub'
 
-    SchulIT\CommonBundle\Command\CreateCertificateCommand:
-      arguments:
-        $types:
-          saml:
-            keyFile: '%sp_cert_key%'
-            certFile: '%sp_cert_file%'
-          oauth2:
-            keyFile: '%kernel.project_dir%/oauth/oauth.key'
-            certFile: '%kernel.project_dir%/oauth/oauth.pub'
+  SchulIT\CommonBundle\EventSubscriber\SamlExceptionSubscriber:
+    arguments:
+      $retryRoute: 'lightsaml_sp.login'
+      $loggedInRoute: 'dashboard'
 
-    SchulIT\CommonBundle\EventSubscriber\SamlExceptionSubscriber:
-      arguments:
-        $retryRoute: 'lightsaml_sp.login'
-        $loggedInRoute: 'dashboard'
+  # MENU
+  App\Menu\Builder:
+    tags:
+      - { name: knp_menu.menu_builder, method: mainMenu, alias: mainMenu }
 
-    # MENU
-    App\Menu\Builder:
-      arguments:
-        $idpProfileUrl: '%env(IDP_PROFILE_URL)%'
-      tags:
-        - { name: knp_menu.menu_builder, method: mainMenu, alias: mainMenu }
-        - { name: knp_menu.menu_builder, method: userMenu, alias: userMenu }
-        - { name: knp_menu.menu_builder, method: adminMenu, alias: adminMenu }
-        - { name: knp_menu.menu_builder, method: settingsMenu, alias: settingsMenu }
-        - { name: knp_menu.menu_builder, method: servicesMenu, alias: servicesMenu }
-        - { name: knp_menu.menu_builder, method: systemMenu, alias: systemMenu }
-        - { name: knp_menu.menu_builder, method: notificationsMenu, alias: notificationsMenu }
+  App\Menu\ServicesMenuBuilder:
+    tags:
+      - { name: knp_menu.menu_builder, method: servicesMenu, alias: servicesMenu }
 
-    SchulIT\CommonBundle\Menu\Voter:
-      tags:
-        - { name: knp_menu.voter }
+  App\Menu\UserMenuBuilder:
+    arguments:
+      $idpProfileUrl: '%env(IDP_PROFILE_URL)%'
+    tags:
+      - { name: knp_menu.menu_builder, method: userMenu, alias: userMenu }
 
-    # DARK MODE:
-    SchulIT\CommonBundle\DarkMode\DarkModeManagerInterface:
-      class: App\DarkMode\DarkModeManager
+  App\Menu\AdminMenuBuilder:
+    tags:
+      - { name: knp_menu.menu_builder, method: adminMenu, alias: adminMenu }
+
+  SchulIT\CommonBundle\Menu\Voter:
+    tags:
+      - { name: knp_menu.voter }
+
+  # DARK MODE:
+  SchulIT\CommonBundle\DarkMode\DarkModeManagerInterface:
+    class: App\DarkMode\DarkModeManager

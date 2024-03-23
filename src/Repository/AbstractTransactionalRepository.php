@@ -4,9 +4,9 @@ namespace App\Repository;
 
 abstract class AbstractTransactionalRepository extends AbstractRepository implements TransactionalRepositoryInterface {
 
-    private $isTransactionActive = false;
+    private bool $isTransactionActive = false;
 
-    protected function flushIfNotInTransaction() {
+    protected function flushIfNotInTransaction(): void {
         $this->isTransactionActive || $this->em->flush();
     }
 
@@ -18,6 +18,11 @@ abstract class AbstractTransactionalRepository extends AbstractRepository implem
     public function commit(): void {
         $this->em->flush();
         $this->em->commit();
+        $this->isTransactionActive = false;
+    }
+
+    public function rollback(): void {
+        $this->em->rollback();
         $this->isTransactionActive = false;
     }
 }

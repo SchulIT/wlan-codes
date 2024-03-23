@@ -2,26 +2,25 @@
 
 namespace App\Twig;
 
+use Exception;
 use App\Entity\User;
 use LightSaml\SpBundle\Security\Authentication\Token\SamlSpToken;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class UserVariable {
-    private $tokenStorage;
-
-    public function __construct(TokenStorageInterface $tokenStorage) {
-        $this->tokenStorage = $tokenStorage;
+    public function __construct(private TokenStorageInterface $tokenStorage)
+    {
     }
 
     /**
      * @return SamlSpToken
-     * @throws \Exception
+     * @throws Exception
      */
     private function getToken() {
         $token = $this->tokenStorage->getToken();
 
         if(!$token instanceof SamlSpToken) {
-            throw new \Exception(sprintf('Token must be of type "%s" ("%s" given)', SamlSpToken::class, get_class($token)));
+            throw new Exception(sprintf('Token must be of type "%s" ("%s" given)', SamlSpToken::class, $token !== null ? $token::class : self::class));
         }
 
         return $token;
@@ -32,7 +31,7 @@ class UserVariable {
         $user = $token->getUser();
 
         if(!$user instanceof User) {
-            throw new \Exception(sprintf('Token must be of type "%s" ("%s" given)', User::class, get_class($user)));
+            throw new Exception(sprintf('Token must be of type "%s" ("%s" given)', User::class, $user::class));
         }
 
         return $user;

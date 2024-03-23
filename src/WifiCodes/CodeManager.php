@@ -11,14 +11,10 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 class CodeManager {
 
-    private static $Threshold = 50; // pieces
+    private static $Threshold = 50;
 
-    private $repository;
-    private $tokenStorage;
-
-    public function __construct(WifiCodeRepositoryInterface $codeRepository, TokenStorageInterface $tokenStorage) {
-        $this->repository = $codeRepository;
-        $this->tokenStorage = $tokenStorage;
+    public function __construct(private WifiCodeRepositoryInterface $repository, private TokenStorageInterface $tokenStorage)
+    {
     }
 
     public function requestCode(int $duration, ?string $comment): WifiCode {

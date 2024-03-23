@@ -7,7 +7,7 @@ use App\Entity\WifiCode;
 
 class WifiCodeRepository extends AbstractTransactionalRepository implements WifiCodeRepositoryInterface {
 
-    public function findAllByUser(User $user, ?int $offset = 0, $limit = 25): array {
+    public function findAllByUser(User $user, ?int $offset = 0, int $limit = 25): array {
         return $this->em->createQueryBuilder()
             ->select('c')
             ->from(WifiCode::class, 'c')
@@ -87,7 +87,15 @@ class WifiCodeRepository extends AbstractTransactionalRepository implements Wifi
         return array_column($durations, 1);
     }
 
-    public function detach(): void {
-        $this->em->clear();
+    public function codeExists(string $code): bool {
+        $result = $this->em->createQueryBuilder()
+            ->select('1')
+            ->from(WifiCode::class, 'c')
+            ->where('c.code = :code')
+            ->setParameter('code', $code)
+            ->getQuery()
+            ->getOneOrNullResult();
+
+        return $result !== null;
     }
 }

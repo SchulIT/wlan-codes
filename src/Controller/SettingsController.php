@@ -12,10 +12,8 @@ use Symfony\Component\Validator\Constraints\NotNull;
 
 class SettingsController extends AbstractController {
 
-    /**
-     * @Route("/admin/settings", name="settings")
-     */
-    public function indexAction(Request $request, ApplicationSettings $settings) {
+    #[Route(path: '/admin/settings', name: 'settings')]
+    public function index(Request $request, ApplicationSettings $settings) {
         $form = $this->createFormBuilder()
             ->add('wifiName', TextType::class, [
                 'label' => 'label.wifi_name',

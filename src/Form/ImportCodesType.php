@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints\GreaterThan;
 use Symfony\Component\Validator\Constraints\NotNull;
 
 class ImportCodesType extends AbstractType {
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder, array $options): void {
         $builder
             ->add('duration', IntegerType::class, [
                 'label' => 'label.duration',
@@ -22,8 +22,7 @@ class ImportCodesType extends AbstractType {
             ->add('csv', FileType::class, [
                 'label' => 'label.file',
                 'constraints' => [
-                    new NotNull(),
-                    new File(['maxSize' => '10M'])
+                    new NotNull()
                 ]
             ]);
     }

@@ -1,0 +1,11 @@
+parameters:
+	level: 5
+	customRulesetUsed: true
+	paths:
+	    - src
+	inferPrivatePropertyTypeFromConstructor: true
+	symfony:
+		container_xml_path: '%rootDir%/../../../var/cache/dev/App_KernelDevDebugContainer.xml'
+	doctrine:
+		objectManagerLoader: tests/object-manager.php
+		allowNullablePropertyForRequiredField: true

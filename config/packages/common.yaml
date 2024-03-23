@@ -14,5 +14,11 @@ common:
   menu: mainMenu
   disable:
     cron: true
-    mail: true
     messenger: true
+
+services:
+  SchulIT\CommonBundle\Monolog\DatabaseHandler:
+    autoconfigure: true
+    autowire: true
+    arguments:
+      $connection: '@doctrine.dbal.logger_connection'

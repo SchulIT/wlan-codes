@@ -12,15 +12,11 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RequestWifiCodeType extends AbstractType {
 
-    private $codeRepository;
-    private $translator;
-
-    public function __construct(WifiCodeRepositoryInterface $codeRepository, TranslatorInterface $translator) {
-        $this->codeRepository = $codeRepository;
-        $this->translator = $translator;
+    public function __construct(private readonly WifiCodeRepositoryInterface $codeRepository, private readonly TranslatorInterface $translator)
+    {
     }
 
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder, array $options): void {
         $choices = [ ];
 
         foreach($this->codeRepository->getAvailableDurations() as $duration) {

@@ -42,26 +42,32 @@
             </div>
 
             <div class="col-md-4">
-                {% form_theme form "bootstrap_4_layout.html.twig" %}
+
+                {% form_theme form "bootstrap_5_layout.html.twig" %}
                 {{ form_start(form) }}
+                    <div class="card form-import-codes" data-url="{{ path('xhr_import') }}">
+                        <div class="card-header">
+                            {{ 'codes.import.label'|trans }}
+                        </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        {{ 'codes.import.label'|trans }}
+                        <div class="card-body">
+                            {{ form_widget(form) }}
+                        </div>
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fa fa-cloud-upload-alt"></i> {{ 'codes.import.submit'|trans }}
+                            </button>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="card-body">
-                        {{ form_widget(form) }}
-                    </div>
-
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-sm">
-                            <i class="fa fa-cloud-upload-alt"></i> {{ 'codes.import.submit'|trans }}
-                        </button>
-                    </div>
-                </div>
-
                 {{ form_end(form) }}
+
             </div>
         </div>
     </div>
