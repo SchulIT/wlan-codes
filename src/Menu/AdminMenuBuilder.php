@@ -44,6 +44,12 @@ class AdminMenuBuilder extends AbstractMenuBuilder {
                 'route' => 'admin_logs'
             ])
                 ->setExtra('icon', 'fas fa-clipboard-list');
+
+            $menu->addChild('administration.ea', [
+                'uri' => '/admin/ea'
+            ])
+                ->setLinkAttribute('target', '_blank')
+                ->setExtra('icon', 'fas fa-tools');
         }
 
         return $root;

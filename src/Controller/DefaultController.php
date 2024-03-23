@@ -25,7 +25,7 @@ class DefaultController extends AbstractController {
         return $this->redirectToRoute('dashboard');
     }
 
-    #[Route(path: '/dashboard', name: 'dashboard')]
+    #[Route(path: '/code', name: 'dashboard')]
     public function dashboard(WifiCodeRepositoryInterface $repository, CodeManager $codeManager, Request $request): Response {
         /** @var User $user */
         $user = $this->getUser();

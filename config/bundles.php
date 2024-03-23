@@ -17,4 +17,5 @@ return [
     FrostieDE\ComposerDependencyListBundle\ComposerDependencyListBundle::class => ['all' => true],
     SchulIT\CommonBundle\CommonBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
+    EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class => ['all' => true],
 ];

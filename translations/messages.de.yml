@@ -54,6 +54,8 @@ dashboard:
 
 administration:
   label: Verwaltung
+  ea: EasyAdmin
 
 external:
   docs: Handbuch
+
