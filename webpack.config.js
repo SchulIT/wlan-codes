@@ -7,6 +7,7 @@ Encore
     .setPublicPath('/build')
 
     .addEntry('app', './assets/js/app.js')
+    .addEntry('import-codes', './assets/js/import-codes.js')
     .addStyleEntry('simple', './assets/css/simple.scss')
 
     .configureBabel(() => {}, {
