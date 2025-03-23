@@ -12,6 +12,7 @@ use App\WifiCodes\CodeManager;
 use App\WifiCodes\NoCodeAvailableException;
 use App\WifiCodes\NotGrantedException;
 use Exception;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,7 +72,7 @@ class DefaultController extends AbstractController {
     }
 
     #[Route(path: '/code/{uuid}', name: 'show_code')]
-    public function show(WifiCode $code, ApplicationSettings $settings): Response {
+    public function show(#[MapEntity(mapping: ['uuid' => 'uuid'])] WifiCode $code, ApplicationSettings $settings): Response {
         $this->denyAccessUnlessGranted(CodeVoter::Show, $code);
 
         return $this->render('show.html.twig', [

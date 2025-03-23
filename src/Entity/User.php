@@ -137,7 +137,7 @@ class User implements UserInterface, Stringable {
         $this->username = $data['username'];
     }
 
-    public function eraseCredentials() {
+    public function eraseCredentials(): void {
         // TODO: Implement eraseCredentials() method.
     }
 

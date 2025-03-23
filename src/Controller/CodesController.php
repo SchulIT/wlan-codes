@@ -50,7 +50,7 @@ class CodesController extends AbstractController {
     }
 
     #[Route(path: '', name: 'codes')]
-    public function index(Request $request, WifiCodeRepositoryInterface $codeRepository): Response {
+    public function index(WifiCodeRepositoryInterface $codeRepository): Response {
         $stats = [ ];
 
         foreach($codeRepository->getAvailableDurations() as $duration) {
