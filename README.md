@@ -1,5 +1,9 @@
 # WLAN Code-Verwaltung
 
+![PHP 8.3](https://img.shields.io/badge/PHP-8.3-success.svg?style=flat-square)
+![Symfony 7](https://img.shields.io/badge/Symfony-7-success.svg?style=flat-square)
+![MIT](https://img.shields.io/github/license/schulit/wlan-codes.svg?style=flat-square)
+
 Die WLAN Code-Verwaltung kann genutzt werden, um von der pfSense generierte Vouchers für das Captive Portal an
 Lehrkräfte weiterzugeben.
 
