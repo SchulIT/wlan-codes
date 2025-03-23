@@ -8,6 +8,8 @@ use App\Form\RequestWifiCodeType;
 use App\Repository\WifiCodeRepositoryInterface;
 use App\Security\Voter\CodeVoter;
 use App\Settings\ApplicationSettings;
+use App\Settings\AppSettings;
+use App\Settings\WifiSettings;
 use App\WifiCodes\CodeManager;
 use App\WifiCodes\NoCodeAvailableException;
 use App\WifiCodes\NotGrantedException;
@@ -72,13 +74,13 @@ class DefaultController extends AbstractController {
     }
 
     #[Route(path: '/code/{uuid}', name: 'show_code')]
-    public function show(#[MapEntity(mapping: ['uuid' => 'uuid'])] WifiCode $code, ApplicationSettings $settings): Response {
+    public function show(#[MapEntity(mapping: ['uuid' => 'uuid'])] WifiCode $code, WifiSettings $settings): Response {
         $this->denyAccessUnlessGranted(CodeVoter::Show, $code);
 
         return $this->render('show.html.twig', [
             'code' => $code,
-            'network' => $settings->getWifiName(),
-            'url' => $settings->getPortalUrl()
+            'network' => $settings->wifiName,
+            'url' => $settings->portalUrl
         ]);
     }
 }

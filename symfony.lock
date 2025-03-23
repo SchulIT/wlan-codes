@@ -128,6 +128,9 @@
     "guzzlehttp/psr7": {
         "version": "1.4.2"
     },
+    "jbtronics/settings-bundle": {
+        "version": "v2.4.2"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },

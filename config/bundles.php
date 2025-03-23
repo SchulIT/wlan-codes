@@ -20,4 +20,5 @@ return [
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
     Symfony\UX\TwigComponent\TwigComponentBundle::class => ['all' => true],
     Chrisguitarguy\RequestId\ChrisguitarguyRequestIdBundle::class => ['all' => true],
+    Jbtronics\SettingsBundle\JbtronicsSettingsBundle::class => ['all' => true],
 ];

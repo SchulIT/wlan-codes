@@ -10,8 +10,6 @@ label:
   requested_at: Abgerufen am
   select:
     duration: Dauer auswählen
-  wifi_name: Name des WLANs
-  url: URL des Captive Portal
 
 request:
   label: Code anfordern
@@ -48,6 +46,21 @@ settings:
   label: Einstellungen
   success: Einstellungen erfolgreich aktualisiert
   save: speichern
+
+  app:
+    label: Allgemeine Einstellungen
+
+  custom_css:
+    label: Benutzerdefiniertes CSS
+    help: Hier kann benutzerdefiniertes CSS eingebunden werden, um die Software nach eigenen Wünschen einzufärben.
+
+
+  wifi:
+    label: WLAN-Einstellungen
+    name:
+      label: Name des WLANs
+    portal:
+      label: URL des Captive Portal
 
 dashboard:
   label: Übersicht
