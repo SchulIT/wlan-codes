@@ -58,8 +58,6 @@ Unter *Verwaltung ➜ Attribute* ein neues Attribut erstellen.
 | Typ                                    | Auswahlfeld                          |
 | Dienste                                | Hier den WLAN Codes-Dienst auswählen |
 
-Unter *Optionen* muss die Option *Mehrfach-Auswahl möglich* deaktiviert bleiben.
-
 Folgende Optionen eintragen:
 
 | Schlüssel       | Wert                                            |

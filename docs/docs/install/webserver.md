@@ -17,9 +17,9 @@ Darin befindet sich bereits eine `.htaccess`-Datei, welche für das URL Rewritin
 
 Die minimale Konfiguration für nginx ist wie folgt:
 
-```text title=/etc/nginx/sites-available/sso
+```text title=/etc/nginx/sites-available/wifi-codes
 server {
-    server_name sso.schulit.de;
+    server_name wifi-codes.schulit.de;
     root /srv/http/idp/public;
 
     location / {
@@ -64,8 +64,8 @@ server {
     }
 
     # OPTIONAL: Logging
-    error_log /var/log/nginx/idp_error.log;
-    access_log /var/log/nginx/idp_access.log;
+    error_log /var/log/nginx/wifi_codes_error.log;
+    access_log /var/log/nginx/wifi_codes_access.log;
 }
 ```
 

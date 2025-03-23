@@ -39,6 +39,4 @@ Folgende Dateien müssen im Backup enthalten sein:
 * `.env.local`
 * `certs/idp.crt`
 * `certs/idp.key`
-* optional: `assets/css/custom/*.scss`
-* optional: `assets/css/custom/*.scss`
 * optional: `public/images/*`
