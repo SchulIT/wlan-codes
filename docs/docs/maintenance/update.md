@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Updates
 
-:::warning Achtung
+:::warning[Achtung]
 Bitte immer zunächst prüfen, ob es eine entsprechende `UPDATE-X.XX.md` gibt, in der möglicherweise auf Inkompatibilitäten
 oder Hinweise zum Update veröffentlicht werden.
 :::
@@ -13,7 +13,7 @@ oder Hinweise zum Update veröffentlicht werden.
 
 Bitte zunächst eine [Datensicherung](backup) anfertigen.
 
-:::warning Achtung
+:::warning[Achtung]
 Um ein Backup einzuspielen, muss die entsprechende Version des Quelltextes bekannt sein. Der folgende Befehle liefert
 den aktuellen Git Commit-Hash, sodass dieser später wiederhergestellt werden kann:
 
@@ -37,14 +37,14 @@ Dabei ist `1.0.0` durch die entsprechende Version zu ersetzen.
 
 ```bash
 $ composer install --no-dev --classmap-authoritative --no-scripts
-$ npm install
 ```
 
 ## CSS- und JavaScript-Dateien erstellen
 
 ```bash
-$ npm run build
 $ php bin/console assets:install
+$ php bin/console importmap:install
+$ php bin/console asset-map:compile
 ```
 
 ## Aktualisierung der Anwendung und Datenbank
@@ -58,7 +58,7 @@ $ php bin/console doctrine:migrations:migrate --no-interaction
 $ php bin/console app:setup
 ```
 
-:::success Erfolg
+:::success[Erfolg]
 Die Anwendung ist nun aktualisiert.
 :::
 
@@ -87,8 +87,9 @@ $ npm install
 ### CSS- und JavaScript-Dateien erstellen
 
 ```bash
-$ npm run build
 $ php bin/console assets:install
+$ php bin/console importmap:install
+$ php bin/console asset-map:compile
 ```
 
 ### Aktualisierung der Anwendung und Datenbank

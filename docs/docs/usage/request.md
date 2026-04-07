@@ -7,10 +7,11 @@ sidebar_position: 3
 Nachdem Codes importiert wurden, können diese von den Benutzern abgerufen werden. Dazu wählen sie
 die gewünschte Dauer aus und geben optional einen Kommentar ein.
 
-:::warning Hinweis
+:::warning[Hinweis]
 Es ist notwendig, dass Benutzer die Rolle `ROLE_*duration*` besitzen, wobei *duration* für die gewünschte
 Dauer stehen. Also für 45-Minuten-Codes (sofern diese importiert wurden), wird die Rolle `ROLE_45` benötigt.
-Diese muss über das Single-Sign-On eingerichtet sein.
+Diese muss über das Single-Sign-On eingerichtet sein. Wenn die Anwendung per Autoconfig eingerichtet wurde,
+wird die Rolle automatisch angelegt, ggf. muss eine Synchronisation im Single Sign-On (Verwaltung ➜ Dienste ➜ *Dienstname* ➜ Drei-Punkte-Menü ➜ Autoconfig durchführen)
 
 **Wichtig:** Diese Regelung gilt auch für den Administrator.
 :::

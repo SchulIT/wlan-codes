@@ -12,7 +12,7 @@ Formular auf der rechten Seite eingetragen werden.
 Der Import findet in Batches von 1000 Codes statt, da es anderenfalls zu Timeouts kommen kann (insb. 
 bei sehr vielen zu importierenden Codes).
 
-:::tip Hinweis
+:::tip[Hinweis]
 Beim Import werden Codes, die bereits im System existieren, ignoriert. Sie werden also nicht doppelt
 importiert, gelöscht oder ähnliches. Auch lässt sich durch einen Import ein Code nicht "zurücksetzen", 
 sodass er wieder ausgegeben werden kann.
