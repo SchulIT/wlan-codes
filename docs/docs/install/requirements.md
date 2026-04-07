@@ -9,11 +9,17 @@ sidebar_position: 1
   * Apache 2.4+ oder
   * nginx
 * PHP 8.4+ mit folgenden Erweiterungen
+  * ctype
+  * dom
+  * filter
   * iconv
   * json
   * mbstring
   * openssl
   * pdo_mysql
+  * simplexml
+  * tokenizer
+  * xml
 * MariaDB 10.4+ (ein kompatibles MySQL kann funktionieren, ist jedoch nicht getestet)
 * Composer 2+
 * Git (zum einfachen Einspielen der Software)
