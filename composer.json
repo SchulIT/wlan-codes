@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "ext-iconv": "*",
         "ext-json": "*",
         "ext-openssl": "*",
@@ -17,13 +17,14 @@
         "lightsaml2/sp-bundle": "^4.0",
         "lightsaml2/symfony-bridge": "^5.0",
         "ramsey/uuid-doctrine": "^1.6",
-        "schulit/common-bundle": "^5.0.0",
+        "schulit/common-bundle": "^6.0",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "^7.0",
+        "symfony/asset-mapper": "^7.0",
         "symfony/console": "^7.0",
         "symfony/dotenv": "^7.0",
         "symfony/expression-language": "^7.0",
-        "symfony/flex": "^1.1",
+        "symfony/flex": "^2",
         "symfony/framework-bundle": "^7.0",
         "symfony/monolog-bundle": "^3.1",
         "symfony/runtime": "^7.0",
@@ -31,8 +32,9 @@
         "symfony/serializer": "^7.0",
         "symfony/twig-bundle": "^7.0",
         "symfony/web-link": "^7.0",
-        "symfony/webpack-encore-bundle": "^2.1",
-        "symfony/yaml": "^7.0"
+        "symfony/yaml": "^7.0",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
         "phpstan/extension-installer": "^1.1",
@@ -80,7 +82,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "importmap:install": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"

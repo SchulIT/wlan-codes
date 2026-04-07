@@ -5,13 +5,12 @@
 {% block breadcrumb %}
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ path('dashboard') }}">{{ 'dashboard.label'|trans }}</a></li>
-        <li class="breadcrumb-item">{{ block('title') }}</li>
+        <li class="breadcrumb-item active">{{ block('title') }}</li>
     </ol>
 {% endblock %}
 
-{% block javascript %}
-{{ parent() }}
-<script src="{{ asset('build/import-codes.js') }}"></script>
+{% block importmap %}
+    {{ importmap(['app', 'import-codes']) }}
 {% endblock %}
 
 {% block content %}

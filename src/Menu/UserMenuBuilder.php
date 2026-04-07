@@ -58,11 +58,6 @@ class UserMenuBuilder extends AbstractMenuBuilder {
             $icon = 'fas fa-sun';
         }
 
-        $userMenu->addChild($label, [
-            'route' => 'toggle_darkmode'
-        ])
-            ->setExtra('icon', $icon);
-
         $menu->addChild('label.logout', [
             'route' => 'logout',
             'label' => ''

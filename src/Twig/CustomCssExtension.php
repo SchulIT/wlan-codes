@@ -12,7 +12,7 @@ class CustomCssExtension extends AbstractExtension {
 
     public function getFunctions(): array {
         return [
-            new TwigFunction('customCSS', [$this, 'getCustomCSS']),
+            new TwigFunction('customCSS', $this->getCustomCSS(...)),
         ];
     }
 

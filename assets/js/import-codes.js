@@ -1,8 +1,5 @@
-
 import { parse } from '@vanillaes/csv';
-const axios = require('axios');
-require('../../vendor/schulit/common-bundle/Resources/assets/js/polyfill');
-require('../../vendor/schulit/common-bundle/Resources/assets/js/menu');
+import axios  from 'axios';
 
 const batchSize = 1000;
 

@@ -9,9 +9,6 @@ use SchulIT\CommonBundle\Saml\ClaimTypes as SamlClaimTypes;
 use SchulIT\CommonBundle\Security\User\AbstractUserMapper;
 
 class UserMapper extends AbstractUserMapper {
-
-    public const ROLES_ASSERTION_NAME = 'urn:roles';
-
     /**
      * @param Response|array[] $data Either a SAMLResponse or an array (keys: SAML Attribute names, values: corresponding values)
      */
@@ -44,7 +41,7 @@ class UserMapper extends AbstractUserMapper {
      * @param array<string, mixed> $data
      * @return User
      */
-    private function mapUserFromArray(User $user, array $data) {
+    private function mapUserFromArray(User $user, array $data): User {
         $username = $data[ClaimTypes::COMMON_NAME];
         $firstname = $data[ClaimTypes::GIVEN_NAME];
         $lastname = $data[ClaimTypes::SURNAME];
