@@ -17,7 +17,7 @@
         "lightsaml2/sp-bundle": "^4.0",
         "lightsaml2/symfony-bridge": "^5.0",
         "ramsey/uuid-doctrine": "^1.6",
-        "schulit/common-bundle": "^6.0",
+        "schulit/common-bundle": "^6.2",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "^7.0",
         "symfony/asset-mapper": "^7.0",

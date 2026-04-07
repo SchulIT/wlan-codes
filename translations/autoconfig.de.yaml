@@ -1,0 +1,10 @@
+description: Über dieses Tool können WLAN Codes für das freie Internet abgerufen werden.
+
+role_attribute:
+  display_name: WLAN Codes-Rollen
+  description: Rollen im WLAN Codes-Tool
+
+roles:
+  ROLE_ADMIN: Administrator
+  ROLE_USER: Benutzer (kann Codes abrufen)
+  ROLE_CODE_MINS: "Kann Codes mit %minutes% Minuten abrufen"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5cdfb00f352e99087cc6c4ebacf6c903",
+    "content-hash": "305213a8c7447152487c692a613c091b",
     "packages": [
         {
             "name": "brick/math",
@@ -2756,16 +2756,16 @@
         },
         {
             "name": "schulit/common-bundle",
-            "version": "6.1.5",
+            "version": "6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SchulIT/common-bundle.git",
-                "reference": "80fb065f2b50d853888e415546b15288c4fa8106"
+                "reference": "fb6ed39d22b51ad8c7ea07e824b6eb1af0da39f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SchulIT/common-bundle/zipball/80fb065f2b50d853888e415546b15288c4fa8106",
-                "reference": "80fb065f2b50d853888e415546b15288c4fa8106",
+                "url": "https://api.github.com/repos/SchulIT/common-bundle/zipball/fb6ed39d22b51ad8c7ea07e824b6eb1af0da39f7",
+                "reference": "fb6ed39d22b51ad8c7ea07e824b6eb1af0da39f7",
                 "shasum": ""
             },
             "require": {
@@ -2806,9 +2806,9 @@
             "description": "Commonly used bundle for SchulIT software suite.",
             "support": {
                 "issues": "https://github.com/SchulIT/common-bundle/issues",
-                "source": "https://github.com/SchulIT/common-bundle/tree/6.1.5"
+                "source": "https://github.com/SchulIT/common-bundle/tree/6.2.0"
             },
-            "time": "2026-04-05T21:48:52+00:00"
+            "time": "2026-04-07T19:28:05+00:00"
         },
         {
             "name": "scienta/doctrine-json-functions",
@@ -9706,7 +9706,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
@@ -9715,6 +9715,6 @@
         "ext-json": "*",
         "ext-openssl": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

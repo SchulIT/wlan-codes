@@ -20,7 +20,7 @@ Die minimale Konfiguration für nginx ist wie folgt:
 ```text title=/etc/nginx/sites-available/wifi-codes
 server {
     server_name wifi-codes.schulit.de;
-    root /srv/http/idp/public;
+    root /srv/http/wifi-codes/public;
 
     location / {
         # try to serve file directly, fallback to index.php
