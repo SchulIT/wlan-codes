@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "305213a8c7447152487c692a613c091b",
+    "content-hash": "866e623dbbc0513bf66a75bd55bc9235",
     "packages": [
         {
             "name": "brick/math",
@@ -2756,16 +2756,16 @@
         },
         {
             "name": "schulit/common-bundle",
-            "version": "6.2.0",
+            "version": "6.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SchulIT/common-bundle.git",
-                "reference": "fb6ed39d22b51ad8c7ea07e824b6eb1af0da39f7"
+                "reference": "f075cc5f833da6103b57b22aaf54c3905941fb46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SchulIT/common-bundle/zipball/fb6ed39d22b51ad8c7ea07e824b6eb1af0da39f7",
-                "reference": "fb6ed39d22b51ad8c7ea07e824b6eb1af0da39f7",
+                "url": "https://api.github.com/repos/SchulIT/common-bundle/zipball/f075cc5f833da6103b57b22aaf54c3905941fb46",
+                "reference": "f075cc5f833da6103b57b22aaf54c3905941fb46",
                 "shasum": ""
             },
             "require": {
@@ -2806,9 +2806,9 @@
             "description": "Commonly used bundle for SchulIT software suite.",
             "support": {
                 "issues": "https://github.com/SchulIT/common-bundle/issues",
-                "source": "https://github.com/SchulIT/common-bundle/tree/6.2.0"
+                "source": "https://github.com/SchulIT/common-bundle/tree/6.2.1"
             },
-            "time": "2026-04-07T19:28:05+00:00"
+            "time": "2026-04-10T18:17:05+00:00"
         },
         {
             "name": "scienta/doctrine-json-functions",
@@ -9713,7 +9713,8 @@
         "php": "^8.4",
         "ext-iconv": "*",
         "ext-json": "*",
-        "ext-openssl": "*"
+        "ext-openssl": "*",
+        "ext-zlib": "*"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
